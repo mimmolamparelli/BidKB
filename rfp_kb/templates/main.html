@@ -1,0 +1,59 @@
+{% extends "master.html" %}
+
+{% block title %}
+  RFP Knowledge Base Questions and Answers
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<form name = "frm" action=""> 
+  {% csrf_token %} 
+  <table>
+    <tr> <!--upper frame-->
+      <td></td>
+    </tr>
+    <tr> <!-- lower frame-->
+      <td>
+        <table> <!-- details-->
+          <tr>
+            <td>RFP Name:</td>
+            <td>
+              <input type = "text" name ="txtRfp" value="{{ rfp_name}}"><br>
+            </td>
+          </tr>
+          <tr>
+            <td>Question</td>
+            <td>
+              <textarea name="txtQuestion" rows="5" cols="60">{{ question }}</textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Answer
+            </td>
+            <td>
+              <textarea name ="txtAnswer" rows="5" cols="60">{{ answer }}</textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button id="search" onclick="MainSearch()">
+                Search</button>
+              <button id="add" onclick="alert('add something')">
+                Add</button>            
+              <button id="update" onclick="MainUpdate('test')">
+                Updtate</button>
+              <button id="delete" onclick="MainDelete()">
+                Delete</button>
+              
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

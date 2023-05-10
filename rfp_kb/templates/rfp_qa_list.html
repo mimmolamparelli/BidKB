@@ -1,0 +1,27 @@
+{% extends "master.html" %}
+
+{% block title %}
+  RFP Q&A List
+{% endblock %}
+
+{% block content %}
+<table border="1" style="width:50%" cellspacing="0" >
+  
+  <tr>
+    <th>Id</th>
+    <th>Question</th>
+    <th>Answer</th>
+    <th>Delete</th>
+  </tr>
+
+{% for x in elems%}
+  <tr>
+    <td><a href="/rfp_kb/{{ x.id }}">{{ x.id }}</a></td>
+    <td> {{ x.question }}</td>
+    <td> {{ x.answer }} </td>
+    <td> <input type="checkbox" id="d_{{x.id}}"> </td>
+    
+  </tr>
+{% endfor %}
+  </table>
+{% endblock %}
