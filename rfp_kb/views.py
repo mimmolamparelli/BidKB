@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_protect
 from .models import rfp_bk
 
 
-def rfp_kb(request, obj_id=-1):
+def rfp_kb(request, obj_id=0):
     # print(request.POST.get('id'))
     name = ""
     q = ""
