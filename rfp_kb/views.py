@@ -1,8 +1,9 @@
 # from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.template import loader
 from django.views.decorators.csrf import csrf_protect
 from .models import rfp_bk
+from django.urls import reverse
 
 
 # github #2
@@ -51,3 +52,17 @@ def rfp_qa_list(request):
         "elems": elems,
     }
     return HttpResponse(template.render(context, request))
+
+@csrf_protect
+def rfp_addrecord(request):
+    name = request.POST.get('txtRfp')
+    q = request.POST.get('txtQuestion')
+    a = request.POST.get('txtAnswer')
+    p = request.POST.get('txtProduct')
+    v= request.POST.get('txtProductVariant')
+    print(f"question:{q} - answer:{a}")
+    rfp = rfp_bk(rfp_name=name,question=q,answer = a, product = p, product_variant =v)
+    rfp.save()
+    return HttpResponseRedirect(reverse('rfp_qa_list'))
+
+    

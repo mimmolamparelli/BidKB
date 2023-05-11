@@ -14,9 +14,12 @@ function MainSearch()
 
 function MainAdd()
 {
-  // f = document.forms.frm;
+  f = document.forms.frm;
   // question = f.elements.txtQuestion.value;
-  alert('Adding a new record');
+  f.action = "/rfp_addrecord/";
+  f.method="POST";
+  f.submit();
+  
 }
 
 function MainUpdate(id)
