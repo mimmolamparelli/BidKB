@@ -42,6 +42,7 @@ def test(request):
 
 @csrf_protect
 def rfp_qa_list(request):
+    print (request)
     q = request.POST.get('txtQuestion')
     a = request.POST.get('txtAnswer')
     print(f"Question:{q} / Answer:{a}")
@@ -60,8 +61,11 @@ def rfp_addrecord(request):
     a = request.POST.get('txtAnswer')
     p = request.POST.get('txtProduct')
     v= request.POST.get('txtProductVariant')
+    t = "" #topic
+    wl = True #winloss
+    c = True #comply
     print(f"question:{q} - answer:{a}")
-    rfp = rfp_bk(rfp_name=name,question=q,answer = a, product = p, product_variant =v)
+    rfp = rfp_bk(rfp_name=name,question=q,answer = a, product = p, product_variant =v, topic=t, winLoss=wl, comply=c)
     rfp.save()
     return HttpResponseRedirect(reverse('rfp_qa_list'))
 

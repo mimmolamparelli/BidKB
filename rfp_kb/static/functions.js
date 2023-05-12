@@ -36,3 +36,14 @@ function MainDelete()
   alert ('Deleting the current record');
 }
 
+function MainReset()
+{
+  alert('delete');
+  f = document.forms.frm;
+  f.elements.txtRfp.value="";
+  f.elements.txtQuestion.value="";
+  f.elements.txtAnswer.value="";
+  f.elements.txtProduct.value="";
+  f.elements.txtProductVariant.value="";
+}
+
