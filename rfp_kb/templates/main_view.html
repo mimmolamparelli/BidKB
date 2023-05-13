@@ -8,5 +8,16 @@
 
 
 {% block content %}
+<table border="1" style="width:50%" cellspacing="0" >
+  {% for x in elems%}
+
+
+  <tr>
+    <td>{{x.id}}</td>
+    <td><a href="/rfp_kb/{{ x.id }}">{{x.question}}</a> </td>
+  </tr>
+  {% endfor %}
+</table>
+
 <a href="http://127.0.0.1:8000/rfp_kb/0">GO</a>
 {% endblock %}

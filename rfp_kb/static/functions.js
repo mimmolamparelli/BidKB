@@ -38,6 +38,9 @@ function MainDelete()
 
 function MainReset()
 {
-  window.location.href = "http://127.0.0.1:8000/rfp_kb/0";
+  alert('main reset! 1')
+  f = document.forms.frm;
+  f.reset();
+  
 }
 

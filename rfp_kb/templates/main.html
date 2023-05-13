@@ -3,21 +3,28 @@
 {% block title %}
   RFP Knowledge Base Questions and Answers
 {% endblock %}
-
-
-
-
 {% block content %}
+
 
 <form name = "frm" action=""> 
   {% csrf_token %} 
-  <table>
-    <tr> <!--upper frame-->
-      <td></td>
-    </tr>
-    <tr> <!-- lower frame-->
-      <td>
-        <table> <!-- details-->
+
+  
+  <!-- TOP MENU-->
+  <div class = "my_nav_bar">  
+    <table>
+      <tr>
+        <td ><a href="javascript:MainSearch()" >Search</a></td>
+        <td><a href="javascript:MainAdd()">Add</a></td>
+        <td><a href="alert('update to be implemented')">Update</a></td>
+        <td><a href="alert('delete to be implemented')">Delete</a></td>
+        <td><a href="http://127.0.0.1:8000/rfp_kb/0">Clear</a></td>
+      </tr>
+    </table>
+  </div>
+
+
+    <table> <!-- details-->
           <tr>
             <td>RFP Name:</td>
             <td>
@@ -47,25 +54,7 @@
             <td><input type="text" name="txtProductVariant" id="txtProductVariant" value="{{ product_variant}}"></td>
           </tr>
           <tr>
-            <td>
-              <button id="search" onclick="MainSearch()">
-                Search</button>
-              <button id="add" onclick="MainAdd()">
-                Add</button>            
-            
-           
-            </td>
-            <td>
-              <button id="update" onclick="MainUpdate('test')">
-                Updtate</button>
-              <button id="delete" onclick="MainDelete()">
-                Delete</button>
-              <button id ="reset" onclick="MainReset()">Clear</button>
-            </td>
           </tr>
-        </table>
-      </td>
-    </tr>
   </table>
 </form>
 {% endblock %}

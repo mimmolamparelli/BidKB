@@ -67,9 +67,15 @@ def rfp_addrecord(request):
     print(f"question:{q} - answer:{a}")
     rfp = rfp_bk(rfp_name=name,question=q,answer = a, product = p, product_variant =v, topic=t, winLoss=wl, comply=c)
     rfp.save()
-    return HttpResponseRedirect(main_view)
-
-def main_view(request):
     template = loader.get_template('main_view.html') 
     return HttpResponse(template.render())
+    # return HttpResponseRedirect(main_view)
+
+def main_view(request):
+    elems = rfp_bk.objects.all().values()[:10]
+    context = {
+        "elems":elems,
+               }
+    template = loader.get_template('main_view.html') 
+    return HttpResponse(template.render(context))
     

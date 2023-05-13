@@ -16,6 +16,8 @@ input[type="text"]{
   color:blue;
 }
 
+
+
 p {
 
   color:blue;
@@ -38,6 +40,13 @@ h1{
   font-style:bold;
 }
 
+
+.my_nav_bar{
+    background-color: burlywood;
+    font-family: verdana;
+    font-size: 12px;
+    color:blueviolet;
+}
 
 .fw-medium {
     font-weight: 600 !important;
