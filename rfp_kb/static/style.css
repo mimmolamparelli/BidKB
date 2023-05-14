@@ -42,10 +42,16 @@ h1{
 
 
 .my_nav_bar{
-    background-color: burlywood;
+    background-color: green;
     font-family: verdana;
     font-size: 12px;
-    color:blueviolet;
+    color:green ;
+}
+
+.my_nav_button{
+    margin-top: 0;
+    background-color:greenyellow;
+    color:green;
 }
 
 .fw-medium {

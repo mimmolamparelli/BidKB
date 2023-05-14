@@ -24,16 +24,21 @@ function MainAdd()
 
 function MainUpdate(id)
 {
-  // f = document.forms.frm;
-  // question = f.elements.txtQuestion.value;
-  alert ('Updating the current record:'+id);
+  
+  f = document.forms.frm;
+  
+  f.method = "POST";
+  f.action = "/rfp_updaterecord/";
+  f.submit();
 }
 
 function MainDelete()
 {
-  // f = document.forms.frm;
-  // question = f.elements.txtQuestion.value;
-  alert ('Deleting the current record');
+  f = document.forms.frm;
+  f.method ="POST";
+  f.action="/rfp_deleterecord/";
+  f.submit();
+  
 }
 
 function MainReset()

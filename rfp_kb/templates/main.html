@@ -11,19 +11,20 @@
 
   
   <!-- TOP MENU-->
+
   <div class = "my_nav_bar">  
-    <table>
+    <table  width="90">
       <tr>
-        <td ><a href="javascript:MainSearch()" >Search</a></td>
-        <td><a href="javascript:MainAdd()">Add</a></td>
-        <td><a href="alert('update to be implemented')">Update</a></td>
-        <td><a href="alert('delete to be implemented')">Delete</a></td>
-        <td><a href="http://127.0.0.1:8000/rfp_kb/0">Clear</a></td>
+        <td class="my_nav_button" ><a href="javascript:MainSearch()" >Search</a></td>
+        <td class="my_nav_button"><a href="javascript:MainAdd()">Add</a></td>
+        <td class="my_nav_button"><a href="javascript:MainUpdate()">Update</a></td>
+        <td class="my_nav_button"><a href="javascript:MainDelete()">Delete</a></td>
+        <td class="my_nav_button"><a href="http://127.0.0.1:8000/rfp_kb/0">Clear</a></td>
       </tr>
     </table>
   </div>
 
-
+    <input type="hidden" name="id" value="{{ id }}">
     <table> <!-- details-->
           <tr>
             <td>RFP Name:</td>
