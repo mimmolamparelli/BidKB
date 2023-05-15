@@ -43,9 +43,10 @@ function MainDelete()
 
 function MainReset()
 {
-  alert('main reset! 1')
+
   f = document.forms.frm;
-  f.reset();
+  f.method ="POST";
+  f.action="/rfp_kb/0";
+  f.submit();
   
 }
-
