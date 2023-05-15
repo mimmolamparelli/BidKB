@@ -57,11 +57,24 @@
           </tr>
           <tr>
             <td> Win/Loss</td>
-            <td> <input type="checkbox" name="cbWinLoss"></td>
+            <td> 
+              {% if  winLoss %}
+              <input type="checkbox" name="cbWinLoss" checked>
+              {% else %}
+              <input type="checkbox" name="cbWinLoss" >
+              {% endif %}
+          </td>
           </tr>
           <tr>
             <td> Comply</td>
-            <td> <input type="checkbox" name="cbComply"></td>
+            
+            <td> 
+              {% if comply %}
+              <input type="checkbox" name="cbComply" checked>
+              {% else %}
+              <input type="checkbox" name="cbComply" >
+              {% endif %}
+            </td>
           </tr>
   </table>
 </form>
