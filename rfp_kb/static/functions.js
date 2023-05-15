@@ -1,6 +1,10 @@
 function Test()
 {
   alert ('this is a test FUNCTION! ');
+  f = document.forms.frm;
+  f.action = "/test/";
+  f.method = "POST";
+  f.submit();
 }
 
 function MainSearch() 
