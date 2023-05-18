@@ -4,10 +4,12 @@ from django.template import loader
 from django.views.decorators.csrf import csrf_protect
 from .models import rfp_bk
 from django.urls import reverse
+import logging
 
+logger = logging.getLogger(__name__)
 
-# github #2
 def rfp_kb(request, obj_id=0):
+    logger.debug("TEST LOGGER")
     # print(request.POST.get('id'))
     i = ""  #object id
     name = ""  #rfp_name
