@@ -8,6 +8,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 def rfp_kb(request, obj_id=0):
     logger.debug("TEST LOGGER")
     # print(request.POST.get('id'))
@@ -94,8 +95,16 @@ def rfp_addrecord(request):
                  winLoss=wl,
                  comply=c)
     rfp.save()
-    template = loader.get_template('main_view.html')
-    return HttpResponse(template.render())
+
+    elems = rfp_bk.objects.all().values()[:10]
+    template = loader.get_template('rfp_qa_list.html')
+    context = {
+        "elems": elems,
+    }
+    return HttpResponse(template.render(context, request))
+
+    # template = loader.get_template('main_view.html')
+    # return HttpResponse(template.render())
     # return HttpResponseRedirect(main_view)
 
 
@@ -110,11 +119,11 @@ def rfp_updaterecord(request):
     if request.POST.get("cbWinLoss") == "on":
         wl = True  #win
     else:
-        wl = False #loss
+        wl = False  #loss
     if request.POST.get("cbComply") == "on":
         c = True  #comply
     else:
-        c = False #do not comply
+        c = False  #do not comply
     rfp = rfp_bk.objects.filter(id=request.POST.get("id")).values()
     rfp.update(rfp_name=name,
                question=q,
@@ -124,8 +133,13 @@ def rfp_updaterecord(request):
                topic=t,
                winLoss=wl,
                comply=c)
-    template = loader.get_template('main_view.html')
-    return HttpResponse(template.render())
+
+    elems = rfp_bk.objects.all().values()[:10]
+    template = loader.get_template('rfp_qa_list.html')
+    context = {
+        "elems": elems,
+    }
+    return HttpResponse(template.render(context, request))
 
 
 @csrf_protect

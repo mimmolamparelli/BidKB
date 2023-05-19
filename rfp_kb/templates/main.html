@@ -16,7 +16,7 @@
     <table  width="90">
       <tr>
         <td class="my_nav_button" ><a href="javascript:MainSearch()" >Search</a></td>
-        <td class="my_nav_button"><a href="javascript:MainAdd()">Add</a></td>
+        <td class="my_nav_button"><a href="javascript:MainNew()">New</a></td>
         <td class="my_nav_button"><a href="javascript:MainUpdate()">Update</a></td>
         <td class="my_nav_button"><a href="javascript:MainDelete()">Delete</a></td>
         <td class="my_nav_button"><a href="javascript:MainReset()">Clear</a></td>
@@ -24,6 +24,9 @@
       </tr>
     </table>
   </div>
+
+    <!-- END TOP MENU -->
+      
 
     <input type="hidden" name="id" value="{{ id }}">
     <table> <!-- details-->
@@ -75,6 +78,9 @@
               <input type="checkbox" name="cbComply" >
               {% endif %}
             </td>
+            <tr>
+              <td><a href="javascript:MainAdd()"> Add </a></td>
+            </tr>
           </tr>
   </table>
 </form>

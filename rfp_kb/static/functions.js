@@ -54,3 +54,11 @@ function MainReset()
   f.submit();
   
 }
+
+function MainNew()
+{
+  f = document.forms.frm;
+  f.action = "/rfp_kb/0";
+  f.method="POST";
+  f.submit();
+}

@@ -5,6 +5,25 @@
 {% endblock %}
 
 {% block content %}
+
+<!-- TOP MENU-->
+
+  <div class = "my_nav_bar">  
+    <table  width="90">
+      <tr>
+        <td class="my_nav_button" >Search</td>
+        <td class="my_nav_button"><a href="javascript:MainNew()">New</a></td>
+        <td class="my_nav_button">Update</td>
+        <td class="my_nav_button">Delete</td>
+        <td class="my_nav_button">Clear</td>
+        <td class="my_nav_button"><a href="javascript:Test()">TEST</a></td>
+      </tr>
+    </table>
+  </div>
+
+    <!-- END TOP MENU -->
+      
+<form name = "frm" action="">{% csrf_token %}  </form>
 <table border="1" style="width:50%" cellspacing="0" >
   
   <tr>

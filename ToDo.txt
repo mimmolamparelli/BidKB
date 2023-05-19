@@ -1,3 +1,8 @@
 Prevent to add an existing record
 From update go back to main view (top 10 entries)
 Access Control ?
+Redesign the interface (Figma ?)
+Controls on Add new record
+Controls on Update
+Add Lookup fields
+Implement Delete-Selected in List View
