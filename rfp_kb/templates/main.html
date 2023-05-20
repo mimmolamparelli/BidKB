@@ -1,9 +1,10 @@
-{% extends "master.html" %}
+{% extends "base.html" %}
+{% load static %}
 
 {% block title %}
   RFP Knowledge Base Questions and Answers
 {% endblock %}
-{% block content %}
+{% block container %}
 
 
 <form name = "frm" action=""> 
@@ -12,28 +13,30 @@
   
   <!-- TOP MENU-->
 
-  <div class = "my_nav_bar">  
-    <table  width="90">
+  <div role="menubar">  
+    <table >
       <tr>
-        <td class="my_nav_button" ><a href="javascript:MainSearch()" >Search</a></td>
-        <td class="my_nav_button"><a href="javascript:MainNew()">New</a></td>
-        <td class="my_nav_button"><a href="javascript:MainUpdate()">Update</a></td>
-        <td class="my_nav_button"><a href="javascript:MainDelete()">Delete</a></td>
-        <td class="my_nav_button"><a href="javascript:MainReset()">Clear</a></td>
-        <td class="my_nav_button"><a href="javascript:Test()">TEST</a></td>
+        <td role="menuitem"><a href="javascript:MainSearch()" >Search</a></td>
+        <td role="menuitem"><a href="javascript:MainNew()">New</a></td>
+        <td role ="menuitem"><a href="javascript:MainUpdate()">Update</a></td>
+        <td role="menuitem"><a href="javascript:MainDelete()">Delete</a></td>
+        <td role="menuitem"><a href="javascript:MainReset()">Clear</a></td>
+        <td role="menuitem"><a href="javascript:Test()">TEST</a></td>
       </tr>
     </table>
   </div>
 
     <!-- END TOP MENU -->
-      
+   
 
-    <input type="hidden" name="id" value="{{ id }}">
+<small>
+  
+    <input type="hidden" name="id" value="{{ id }}" >
     <table> <!-- details-->
           <tr>
-            <td>RFP Name:</td>
+            <td ><small>RFP Name:</small></td>
             <td>
-              <input type = "text" name ="txtRfp" value="{{ rfp_name}}"><br>
+              <input type = "text" name ="txtRfp" value="{{ rfp_name}}" { font-size: 10px; }><br>
             </td>
           </tr>
           <tr>
@@ -83,5 +86,6 @@
             </tr>
           </tr>
   </table>
+</small>
 </form>
 {% endblock %}

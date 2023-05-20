@@ -1,22 +1,25 @@
-{% extends "master.html" %}
+{% extends "base.html" %}
+{% load static %}
+
 
 {% block title %}
   RFP Q&A List
 {% endblock %}
 
-{% block content %}
+{% block container %}
 
 <!-- TOP MENU-->
-
-  <div class = "my_nav_bar">  
-    <table  width="90">
+<small>
+  <div role="menubar">  
+    <table  role="grid">
       <tr>
-        <td class="my_nav_button" >Search</td>
-        <td class="my_nav_button"><a href="javascript:MainNew()">New</a></td>
-        <td class="my_nav_button">Update</td>
-        <td class="my_nav_button">Delete</td>
-        <td class="my_nav_button">Clear</td>
-        <td class="my_nav_button"><a href="javascript:Test()">TEST</a></td>
+        <td role="menuitem" >Search</td>
+        <td role="menuitem"><a href="javascript:MainNew()">New</a></td>
+        <td role="menuitem">Update</td>
+        <td role="menuitem">Delete</td>
+        <td role="menuitem">Clear</td>
+        <!--td class="my_nav_button"><a href="javascript:Test()">TEST</a></td-->
+        <td><a href="www.google.com">TEST-2</a></td>
       </tr>
     </table>
   </div>
@@ -24,7 +27,7 @@
     <!-- END TOP MENU -->
       
 <form name = "frm" action="">{% csrf_token %}  </form>
-<table border="1" style="width:50%" cellspacing="0" >
+<table   role="grid">
   
   <tr>
     <th>Id</th>
@@ -44,3 +47,4 @@
 {% endfor %}
   </table>
 {% endblock %}
+</small>
