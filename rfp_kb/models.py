@@ -2,6 +2,7 @@ from django.db import models
 
 
 class rfp_bk(models.Model):
+    # This class models the RFP questions and answers
     rfp_name = models.CharField(max_length=200)  #this will be a lookup field
     question = models.CharField(max_length=2048)
     topic = models.CharField(max_length=100)  #this will be a lookup field
@@ -13,3 +14,13 @@ class rfp_bk(models.Model):
 
     def __str__(self):
         return self.question
+
+class rfp(models.Model):
+    rfp_name = models.CharField(max_length=200)
+    customer = models.CharField(max_length=200)
+    country = models.CharField(max_length=100)
+    value = models.FloatField()
+    question_id = models.ForeignKey(rfp_bk, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.rfp_name
