@@ -30,7 +30,7 @@
    
 
 <small>
-  
+
     <input type="hidden" name="id" value="{{ id }}" >
     <table> <!-- details-->
           <tr>
@@ -56,7 +56,14 @@
           </tr>
           <tr>
             <td> Product</td>
-            <td><input type="text" name="txtProduct" id="txtProduct" value="{{ product }}"></td>
+            <td>
+              <!--input type="text" name="txtProduct" id="txtProduct" value="{{ product }}"-->
+              <select name=" txtProduct">
+                {% for p in  products%}
+                <option value="{{p.id}}">{{ p.product_name}}</option>
+                {% endfor %}
+              </select>
+            </td>
             <td> Product Variant</td>
             <td><input type="text" name="txtProductVariant" id="txtProductVariant" value="{{ product_variant}}"></td>
           </tr>
