@@ -44,8 +44,6 @@
             <td>
               <textarea name="txtQuestion" rows="5" cols="60">{{ question }}</textarea>
             </td>
-          </tr>
-          <tr>
             <td>
               Answer
             </td>
@@ -54,13 +52,15 @@
             </td>
           </tr>
           <tr>
-            <td> Product</td>
-            <td><input type="text" name="txtProduct" id="txtProduct" value="{{ product }}"></td>
+            
           </tr>
           <tr>
+            <td> Product</td>
+            <td><input type="text" name="txtProduct" id="txtProduct" value="{{ product }}"></td>
             <td> Product Variant</td>
             <td><input type="text" name="txtProductVariant" id="txtProductVariant" value="{{ product_variant}}"></td>
           </tr>
+        
           <tr>
             <td> Win/Loss</td>
             <td> 
@@ -70,21 +70,19 @@
               <input type="checkbox" name="cbWinLoss" >
               {% endif %}
           </td>
-          </tr>
-          <tr>
-            <td> Comply</td>
+          <td> Comply</td>
             
-            <td> 
-              {% if comply %}
-              <input type="checkbox" name="cbComply" checked>
-              {% else %}
-              <input type="checkbox" name="cbComply" >
-              {% endif %}
-            </td>
+          <td> 
+            {% if comply %}
+            <input type="checkbox" name="cbComply" checked>
+            {% else %}
+            <input type="checkbox" name="cbComply" >
+            {% endif %}
+          </td>
+          </tr>
             <tr>
               <td><a href="javascript:MainAdd()"> Add </a></td>
             </tr>
-          </tr>
   </table>
 </small>
 </form>
