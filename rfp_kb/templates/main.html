@@ -36,7 +36,12 @@
           <tr>
             <td ><small>RFP Name:</small></td>
             <td>
-              <input type = "text" name ="txtRfp" value="{{ rfp_name}}" { font-size: 10px; }><br>
+              <!--input type = "text" name ="txtRfp" value="{{ rfp_name}}" { font-size: 10px; }-->
+              <select name="txtRfp">
+                {% for t in tenders %}
+                <option value="{{t.id}}">{{t.rfp_name}}</option>
+                {% endfor%}
+              </select>
             </td>
           </tr>
           <tr>

@@ -2,7 +2,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.views.decorators.csrf import csrf_protect
-from .models import rfp_bk,product
+from .models import rfp_bk,product,rfp
 from django.urls import reverse
 import logging
 
@@ -21,9 +21,11 @@ def rfp_kb(request, obj_id=0):
     wl = False
     c = False
     prod_list = {}
-
+    tenders_list = {}
+    prod_list = product.objects.all().values()
+    tenders_list = rfp.objects.all().values()
     if obj_id > 0:
-        prod_list = product.objects.all().values()
+        
         selected_item = rfp_bk.objects.filter(id=obj_id).values()
         i = selected_item[0]["id"]
         name = selected_item[0]["rfp_name"]
@@ -44,6 +46,7 @@ def rfp_kb(request, obj_id=0):
         "winLoss": wl,
         "comply": c,
         "products":prod_list,
+        "tenders":tenders_list,
     }
     return HttpResponse(template.render(context, request))
 
