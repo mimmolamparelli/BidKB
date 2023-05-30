@@ -24,3 +24,10 @@ class rfp(models.Model):
 
     def __str__(self):
         return self.rfp_name
+
+class product(models.Model):
+    product_name = models.CharField(max_length=200)
+    product_description = models.CharField(max_length=2000)
+
+    def __str__(self):
+        return self.product_name
