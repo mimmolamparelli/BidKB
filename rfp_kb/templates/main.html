@@ -38,6 +38,7 @@
             <td>
               <!--input type = "text" name ="txtRfp" value="{{ rfp_name}}" { font-size: 10px; }-->
               <select name="txtRfp">
+                <option value=""></option>
                 {% for t in tenders %}
                 <option value="{{t.id}}">{{t.rfp_name}}</option>
                 {% endfor%}
@@ -63,7 +64,8 @@
             <td> Product</td>
             <td>
               <!--input type="text" name="txtProduct" id="txtProduct" value="{{ product }}"-->
-              <select name=" txtProduct">
+              <select name=" txtProduct" id="txtProductç">
+                <option value=""></option>
                 {% for p in  products%}
                 <option value="{{p.id}}">{{ p.product_name}}</option>
                 {% endfor %}

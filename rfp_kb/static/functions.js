@@ -30,7 +30,7 @@ function MainUpdate(id)
 {
   
   f = document.forms.frm;
-  
+  alert ('Update !');
   f.method = "POST";
   f.action = "/rfp_updaterecord/";
   f.submit();

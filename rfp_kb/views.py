@@ -120,6 +120,7 @@ def rfp_updaterecord(request):
     q = request.POST.get('txtQuestion')
     a = request.POST.get('txtAnswer')
     p = request.POST.get('txtProduct')
+    print (f"product:{p}")
     v = request.POST.get('txtProductVariant')
     t = ""  #topic
     if request.POST.get("cbWinLoss") == "on":
