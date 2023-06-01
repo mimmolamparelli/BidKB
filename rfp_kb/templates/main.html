@@ -36,11 +36,15 @@
           <tr>
             <td ><small>RFP Name:</small></td>
             <td>
-              <!--input type = "text" name ="txtRfp" value="{{ rfp_name}}" { font-size: 10px; }-->
+              <input type="hidden" name = "txtRfp_value" id = "txtRfp_value" value ="{{rfp_name}}">
               <select name="txtRfp">
                 <option value=""></option>
                 {% for t in tenders %}
+                {% if t.id|stringformat:"i" == rfp_name %} 
+                <option value="{{t.id}}" selected >{{t.rfp_name}}</option>
+                {% else %}
                 <option value="{{t.id}}">{{t.rfp_name}}</option>
+                {% endif %}
                 {% endfor%}
               </select>
             </td>
@@ -63,11 +67,15 @@
           <tr>
             <td> Product</td>
             <td>
-              <!--input type="text" name="txtProduct" id="txtProduct" value="{{ product }}"-->
-              <select name=" txtProduct" id="txtProductç">
+              <input type="hidden" name="txtProduct_value" id="txtProduct_value" value="{{ product }}">
+              <select name=" txtProduct" id="txtProduct">
                 <option value=""></option>
                 {% for p in  products%}
-                <option value="{{p.id}}">{{ p.product_name}}</option>
+                {% if p.id|stringformat:"i" == product %} 
+                <option value="{{p.id}}" selected>{{ p.product_name}}</option>
+                {% else %}
+                <option value="{{p.id}}" >{{ p.product_name}}</option>
+                {% endif %}
                 {% endfor %}
               </select>
             </td>

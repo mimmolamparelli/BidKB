@@ -7,7 +7,13 @@ Controls on Update
 Add Lookup fields
 Implement Delete-Selected in List View
 
-
+  {% for t in tenders %}
+              {% if t.id|stringformat:"i" == rfp_name %} 
+                  [{{t.id}}] -- [{{rfp_name}}] uguali
+              {% else %}
+              [{{t.id}}] -- [{{rfp_name}}] diversi
+              {% endif %}
+              {% endfor %}
 
 
 @charset "UTF-8";

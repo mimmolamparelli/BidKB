@@ -116,11 +116,12 @@ def rfp_addrecord(request):
 
 @csrf_protect
 def rfp_updaterecord(request):
-    name = request.POST.get('txtRfp')
+    # print (request.POST)
+    name = request.POST.get('txtRfp_value')
     q = request.POST.get('txtQuestion')
     a = request.POST.get('txtAnswer')
-    p = request.POST.get('txtProduct')
-    print (f"product:{p}")
+    p = request.POST.get('txtProduct_value')
+    print (f"Product:[{p}]")
     v = request.POST.get('txtProductVariant')
     t = ""  #topic
     if request.POST.get("cbWinLoss") == "on":
