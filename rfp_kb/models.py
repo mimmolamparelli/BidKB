@@ -28,6 +28,7 @@ class rfp(models.Model):
 class product(models.Model):
     product_name = models.CharField(max_length=200)
     product_description = models.CharField(max_length=2000)
-
+    product_type = models.CharField(null=True, max_length=100)
+    product_status = models.BooleanField(null=True) #describes if the product is still active ot has been phased out
     def __str__(self):
         return self.product_name

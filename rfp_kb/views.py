@@ -8,7 +8,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-
+@csrf_protect
 def rfp_kb(request, obj_id=0):
     logger.debug("TEST LOGGER")
     # print(request.POST.get('id'))
@@ -56,7 +56,7 @@ def test(request):
     value = request.POST.get('cbWinLoss')
     print(f"Value={value}")
     template = loader.get_template('test.html')
-    return HttpResponse(template.render())
+    return HttpResponse(template.render(request))
 
 
 @csrf_protect
@@ -155,13 +155,40 @@ def rfp_deleterecord(request):
     rfp = rfp_bk.objects.filter(id=request.POST.get("id"))
     rfp.delete()
     template = loader.get_template('main_view.html')
-    return HttpResponse(template.render())
+    return HttpResponse(template.render(request))
 
-
+@csrf_protect
 def main_view(request):
     elems = rfp_bk.objects.all().values()[:10]
     context = {
         "elems": elems,
     }
     template = loader.get_template('main_view.html')
-    return HttpResponse(template.render(context))
+    return HttpResponse(template.render(context,request))
+
+@csrf_protect
+def prod_search(request):
+    tempate = loader.get_template("product.html")
+    name = request.POST.get('prod_name')
+    print (f"Name:{name}")
+    description = request.POST.get('prod_description')
+    type =  request.POST.get('product_type')
+    # status = request.POST.get('product_status') 
+    # elems = product.objects.filter(product_name__icontains=name, product_description__icontains=description,product_type__icontains=type).values()
+    elems = product.objects.filter(product_name__icontains=name).values()
+    context = {
+        "products":elems,
+    }
+    return HttpResponse(tempate.render(context,request))
+
+@csrf_protect
+def prod_view(request,obj_id=0):
+    tempate = loader.get_template("product.html")
+    if (obj_id!=0):
+        pass
+    else:
+        elems = product.objects.all().values()[:10]
+        context = {
+            "products":elems,
+        }
+    return HttpResponse(tempate.render(context,request))

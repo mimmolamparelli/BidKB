@@ -10,20 +10,38 @@
   <script type="text/javascript" src="{% static 'functions.js' %}"></script>
   <title>RFPDonkey</title>
   {% block header %}
+  
   {% endblock %}
 </head>
 <body>
+ 
   <table width="50%">
     <tr >
       <td width="1%"><img src="{% static "donkey_1.jpeg" %}" alt="RFPDonkey" width="90px" height="90px"></td>
       <td width="20%"><div style="font-size:40px">RFPDonkey</div>
       <small>RFP Q/A Database</small></td>
     </tr>
+    <tr>
+      <td width="100%">
+    <!-- TOP MENU -->  
+      <small>
+      <div role="menubar">
+        <a role="button" href="javascript:Tender()">Tender</a>
+        <a role="button" href="javascript:Product()">Product</a>
+        <a role="button" href="javascript:Test()">Customer</a>
+        <a role="button" href="javascript:Test()">Test</a>
+      </div>
+      </small>
+    <!-- END TOP MENU-->
+      </td>
+    </tr>
   </table>
 
 <main class="container">
   {% block container %}
+
   {% endblock %}
 </main>
+
 </body>
 </html>

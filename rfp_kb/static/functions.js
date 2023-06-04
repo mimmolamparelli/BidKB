@@ -1,10 +1,28 @@
 function Test()
 {
-  alert ('this is a test FUNCTION! ');
+  alert ('This is a test function');
+  // f = document.forms.frm;
+  // f.action = "/test/";
+  // f.method = "POST";
+  // f.submit();
+}
+
+function ProdSearch()
+{
   f = document.forms.frm;
-  f.action = "/test/";
+  f.action = "/prod_search/";
   f.method = "POST";
   f.submit();
+}
+
+function ProductSelection(id,name,description,status,type)
+{
+  f=document.forms.frm;
+  f.id.value=id;
+  f.prod_name.value=name;
+  f.prod_description.value=description;
+  f.product_type.value=type;
+
 }
 
 function MainSearch() 
@@ -13,6 +31,23 @@ function MainSearch()
   question = f.elements.txtQuestion.value;
   f.action = "/rfp_qa_list/";
   f.method = "POST";
+  f.submit();
+}
+
+
+function Tender()
+{
+  f = document.forms.frm;
+  f.method ="POST";
+  f.action="/tender/";
+  f.submit();
+}
+function Product ()
+{
+  
+  f = document.forms.frm;
+  f.method ="POST";
+  f.action="/prod_view/0";
   f.submit();
 }
 
