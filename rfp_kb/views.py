@@ -168,18 +168,21 @@ def main_view(request):
 
 @csrf_protect
 def prod_search(request):
-    tempate = loader.get_template("product.html")
+    name=""
+    description=""
+    prod_type=""
+    template = loader.get_template("product.html")
     name = request.POST.get('prod_name')
-    print (f"Name:{name}")
     description = request.POST.get('prod_description')
-    type =  request.POST.get('product_type')
+    prod_type =  request.POST.get('product_type')
+    print (f"Type:{prod_type}")
     # status = request.POST.get('product_status') 
     # elems = product.objects.filter(product_name__icontains=name, product_description__icontains=description,product_type__icontains=type).values()
-    elems = product.objects.filter(product_name__icontains=name).values()
+    elems = product.objects.filter(product_name__icontains=name, product_description__icontains=description, product_type__icontains=prod_type).values()
     context = {
         "products":elems,
     }
-    return HttpResponse(tempate.render(context,request))
+    return HttpResponse(template.render(context,request))
 
 @csrf_protect
 def prod_view(request,obj_id=0):
