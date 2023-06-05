@@ -7,6 +7,14 @@ function Test()
   // f.submit();
 }
 
+function ProdDelete()
+{
+  f = document.forms.frm;
+  f.action = "/product_delete/";
+  f.method = "POST";
+  f.submit();
+}
+
 function ProdSearch()
 {
   f = document.forms.frm;

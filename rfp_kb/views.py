@@ -183,6 +183,19 @@ def prod_search(request):
     return HttpResponse(template.render(context,request))
 
 @csrf_protect
+def product_delete(request):
+    template = loader.get_template("product.html")
+    prod_id=request.POST.get('id')
+    prod = product.objects.filter(id=prod_id)
+    prod.delete()
+    elems = product.objects.all().values()[:10]
+    context = {
+        "products":elems,
+    }
+    return HttpResponse(template.render(context,request))
+
+
+@csrf_protect
 def product_add(request):
     template = loader.get_template("product.html")
     name = request.POST.get('prod_name')
@@ -200,7 +213,7 @@ def product_add(request):
     prod.save()
     elems = product.objects.all().values()[:10]
     context = {
-        "prducts":elems,
+        "products":elems,
     }
     return HttpResponse(template.render(context,request))
 @csrf_protect
