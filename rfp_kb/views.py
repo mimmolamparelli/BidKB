@@ -91,7 +91,6 @@ def rfp_addrecord(request):
         c = True  #comply
     else:
         c = False
-    print(f"question:{q} - answer:{a}")
     rfp = rfp_bk(rfp_name=name,
                  question=q,
                  answer=a,
@@ -175,7 +174,6 @@ def prod_search(request):
     name = request.POST.get('prod_name')
     description = request.POST.get('prod_description')
     prod_type =  request.POST.get('product_type')
-    print (f"Type:{prod_type}")
     # status = request.POST.get('product_status') 
     # elems = product.objects.filter(product_name__icontains=name, product_description__icontains=description,product_type__icontains=type).values()
     elems = product.objects.filter(product_name__icontains=name, product_description__icontains=description, product_type__icontains=prod_type).values()
@@ -185,8 +183,29 @@ def prod_search(request):
     return HttpResponse(template.render(context,request))
 
 @csrf_protect
+def product_add(request):
+    template = loader.get_template("product.html")
+    name = request.POST.get('prod_name')
+    description = request.POST.get('prod_description')
+    prod_type = request.POST.get('product_type')
+    if request.POST.get('prodcut_status') == "on":
+        prod_status = True
+    else:
+        prod_status = False
+    prod = product  (product_name=name, 
+                    product_description = description,
+                    product_type=prod_type,
+                    product_status = prod_status
+                    )
+    prod.save()
+    elems = product.objects.all().values()[:10]
+    context = {
+        "prducts":elems,
+    }
+    return HttpResponse(template.render(context,request))
+@csrf_protect
 def prod_view(request,obj_id=0):
-    tempate = loader.get_template("product.html")
+    template = loader.get_template("product.html")
     if (obj_id!=0):
         pass
     else:
@@ -194,4 +213,4 @@ def prod_view(request,obj_id=0):
         context = {
             "products":elems,
         }
-    return HttpResponse(tempate.render(context,request))
+    return HttpResponse(template.render(context,request))

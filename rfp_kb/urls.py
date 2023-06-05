@@ -14,5 +14,6 @@ urlpatterns = [
     path('rfp_kb/<int:obj_id>', views.rfp_kb, name='rfp_kb'),
     path('prod_view/<int:obj_id>', views.prod_view, name='prod_view'),
     path('prod_search/',views.prod_search,name='prod_seatch'),
+    path('product_add/',views.product_add,name='product_add'),
 
 ]

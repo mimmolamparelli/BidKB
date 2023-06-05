@@ -25,6 +25,15 @@ function ProductSelection(id,name,description,status,type)
 
 }
 
+function ProductAdd()
+{
+  f = document.forms.frm;
+  f.action = "/product_add/";
+  f.method = "POST";
+  f.submit();
+}
+
+
 function MainSearch() 
 {
   f = document.forms.frm;
