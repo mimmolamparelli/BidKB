@@ -7,6 +7,14 @@ function Test()
   // f.submit();
 }
 
+function ProdNew()
+{
+  f = document.forms.frm;
+  f.action="/prod_view/0";
+  f.method="POST";
+  f.submit();
+}
+
 function ProdDelete()
 {
   f = document.forms.frm;
@@ -41,7 +49,13 @@ function ProductAdd()
   f.submit();
 }
 
-
+function ProductUpdate()
+{
+  f = document.forms.frm;
+  f.action = "/product_update/";
+  f.method = "POST";
+  f.submit();
+}
 function MainSearch() 
 {
   f = document.forms.frm;

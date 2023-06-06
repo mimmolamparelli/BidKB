@@ -216,6 +216,30 @@ def product_add(request):
         "products":elems,
     }
     return HttpResponse(template.render(context,request))
+
+@csrf_protect
+def product_update(request):
+    template = loader.get_template("product.html")
+    name = request.POST.get('prod_name')
+    description = request.POST.get('prod_description')
+    prod_type = request.POST.get('product_type')
+    if request.POST.get('prodcut_status') == "on":
+        prod_status = True
+    else:
+        prod_status = False
+    prod = product.objects.filter(id=request.POST.get("id")).values()
+    prod.update(
+        product_name = name,
+        product_description = description,
+        product_type = prod_type,
+        product_status = prod_status 
+        )
+    elems = product.objects.all().values()[:10]
+    context = {
+        "products":elems,
+    }
+    return HttpResponse(template.render(context,request))
+
 @csrf_protect
 def prod_view(request,obj_id=0):
     template = loader.get_template("product.html")
